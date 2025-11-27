@@ -35,7 +35,7 @@ export default function AdminNavbar() {
   // Gestion de la déconnexion
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:3000/admins/logout", {
+      const response = await fetch("https://marocstar-back.vercel.app/admins/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export default function AdminNavbar() {
               </div>
               <div className="ml-3">
                 <span className="text-xl font-bold bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">
-                  Zellige Star
+                  Maroc Star
                 </span>
                 <span className="block text-xs text-gray-400 font-medium">Admin Panel</span>
               </div>

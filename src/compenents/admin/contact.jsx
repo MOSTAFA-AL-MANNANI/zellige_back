@@ -12,7 +12,7 @@ export default function AdminContacts() {
   const fetchContacts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/contact");
+      const res = await axios.get("https://marocstar-back.vercel.app/contact");
       setContacts(res.data);
     } catch (error) {
       console.error("Erreur chargement contacts", error);
@@ -50,9 +50,9 @@ export default function AdminContacts() {
 
     if (text) {
       try {
-        await axios.post("http://localhost:3000/contact/reply", {
+        await axios.post("https://marocstar-back.vercel.app/contact/reply", {
           email: email,
-          subject: "Réponse - Zellige Star",
+          subject: "Réponse - Maroc Star",
           message: text,
         });
 
@@ -97,7 +97,7 @@ export default function AdminContacts() {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3000/contact/${id}`);
+        await axios.delete(`https://marocstar-back.vercel.app/contact/${id}`);
         Swal.fire({
           title: "✅ Supprimé !",
           text: "Le message a été supprimé avec succès.",

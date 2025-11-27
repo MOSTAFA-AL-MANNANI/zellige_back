@@ -49,7 +49,7 @@ export default function Checkout() {
         totalPrice,
       };
 
-      const res = await axios.post("http://localhost:3000/create-order", orderData);
+      const res = await axios.post("https://marocstar-back.vercel.app/create-order", orderData);
 
       setMessage("✅ Commande enregistrée avec succès !");
       localStorage.removeItem("cart");
@@ -200,28 +200,6 @@ export default function Checkout() {
                 </div>
               </div>
 
-              {/* Méthode de Livraison */}
-              <div className="bg-gray-50 rounded-xl p-4">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
-                  <i className="fas fa-truck text-green-600 mr-2"></i>
-                  Méthode de Livraison
-                </h3>
-                <div className="space-y-2">
-                  {[
-                    { id: 'standard', name: 'Livraison Standard', price: '30 MAD', time: '3-5 jours', icon: 'fas fa-truck' },
-                    { id: 'express', name: 'Livraison Express', price: '60 MAD', time: '1-2 jours', icon: 'fas fa-bolt' }
-                  ].map((method) => (
-                    <label key={method.id} className="flex items-center p-3 border border-gray-200 rounded-lg hover:border-red-300 cursor-pointer transition-colors duration-200">
-                      <input type="radio" name="delivery" className="text-red-600 focus:ring-red-500 mr-3" defaultChecked={method.id === 'standard'} />
-                      <i className={`${method.icon} text-red-600 mr-3`}></i>
-                      <div className="flex-1">
-                        <div className="font-medium text-gray-800">{method.name}</div>
-                        <div className="text-sm text-gray-600">{method.time} • {method.price}</div>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
 
               <button
                 type="submit"
@@ -266,7 +244,7 @@ export default function Checkout() {
                   {cart.map((item) => (
                     <div key={item._id} className="flex items-center space-x-4 p-3 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                       <img
-                        src={`http://localhost:3000${item.image}`}
+                        src={`https://marocstar-back.vercel.app${item.image}`}
                         alt={item.name}
                         className="w-16 h-16 object-cover rounded-lg"
                       />
@@ -294,11 +272,11 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Livraison</span>
-                  <span className="text-green-600">30 MAD</span>
+                  <span className="text-green-600">50 MAD</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold text-gray-800 pt-3 border-t border-gray-200">
                   <span>Total</span>
-                  <span className="text-red-600">{totalPrice + 30} MAD</span>
+                  <span className="text-red-600">{totalPrice + 50} MAD</span>
                 </div>
               </div>
             </div>

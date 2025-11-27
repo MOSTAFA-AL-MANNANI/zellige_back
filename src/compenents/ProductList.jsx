@@ -55,7 +55,7 @@ export default function ProductList() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/product");
+      const response = await axios.get("https://marocstar-back.vercel.app/product");
       setProducts(response.data);
     } catch (err) {
       console.error("Erreur de chargement :", err);
@@ -235,7 +235,7 @@ export default function ProductList() {
                 {/* Image du produit */}
                 <div className="relative overflow-hidden">
                   <img
-                    src={`http://localhost:3000${product.image}`}
+                    src={`https://marocstar-back.vercel.app${product.image}`}
                     alt={product.name}
                     className="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500"
                   />

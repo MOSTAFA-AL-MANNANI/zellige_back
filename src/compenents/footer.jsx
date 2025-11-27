@@ -16,7 +16,7 @@ export default function Footer ()  {
                 </span>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">
-                Zellige Star
+                Maroc Star
               </span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -128,8 +128,8 @@ export default function Footer ()  {
                 <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                   <i className="fas fa-envelope text-white text-xs"></i>
                 </div>
-                <a href="mailto:contact@zelligestar.ma" className="text-gray-300 hover:text-white transition-colors duration-300">
-                  contact@zelligestar.ma
+                <a href="mailto:contact@Marocstar.ma" className="text-gray-300 hover:text-white transition-colors duration-300">
+                  contact@Marocstar.ma
                 </a>
               </div>
 
@@ -195,7 +195,7 @@ export default function Footer ()  {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm flex items-center">
                 <i className="fas fa-copyright mr-2 text-red-400"></i>
-                2024 <span className="text-red-400 mx-1">Zellige Star</span>. Tous droits réservés.
+                2024 <span className="text-red-400 mx-1">Maroc Star</span>. Tous droits réservés.
               </div>
               
               <div className="flex space-x-6 text-sm">

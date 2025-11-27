@@ -19,7 +19,7 @@ export default function Products() {
   // 🔹 Récupérer les produits
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/product");
+      const res = await fetch("https://marocstar-back.vercel.app/product");
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -67,7 +67,7 @@ export default function Products() {
         category: product.category,
         image: null,
       });
-      setPreview(`http://localhost:3000${product.image}`);
+      setPreview(`https://marocstar-back.vercel.app${product.image}`);
       setEditId(product._id);
     } else {
       setForm({ name: "", description: "", prix: "", stock: "", category: "", image: null });
@@ -91,8 +91,8 @@ export default function Products() {
     try {
       const method = editId ? "PUT" : "POST";
       const url = editId
-        ? `http://localhost:3000/product/${editId}`
-        : "http://localhost:3000/product";
+        ? `https://marocstar-back.vercel.app/product/${editId}`
+        : "https://marocstar-back.vercel.app/product";
 
       const formData = new FormData();
       for (const key in form) {
@@ -142,7 +142,7 @@ export default function Products() {
 
     if (result.isConfirmed) {
       try {
-        await fetch(`http://localhost:3000/product/${id}`, { method: "DELETE" });
+        await fetch(`https://marocstar-back.vercel.app/product/${id}`, { method: "DELETE" });
         
         Swal.fire({
           icon: 'success',
@@ -222,7 +222,7 @@ export default function Products() {
               {/* Image du produit */}
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={`http://localhost:3000${product.image}`}
+                  src={`https://marocstar-back.vercel.app${product.image}`}
                   alt={product.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

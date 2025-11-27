@@ -1,4 +1,45 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+
+// Composant Counter animé
+const AnimatedCounter = ({ end, duration = 2000, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      let startTime;
+      const startValue = 0;
+      const endValue = end;
+      
+      const animate = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const progress = Math.min((currentTime - startTime) / duration, 1);
+        
+        // Easing function pour un effet plus naturel
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentCount = Math.floor(easeOutQuart * (endValue - startValue) + startValue);
+        
+        setCount(currentCount);
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    }
+  }, [inView, end, duration]);
+
+  return (
+    <div ref={ref} className="text-2xl md:text-3xl font-bold">
+      {count}{suffix}
+    </div>
+  );
+};
 
 export default function Home() {
   return (
@@ -13,7 +54,7 @@ export default function Home() {
               {/* Titre Principal */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent">
-                  ZELLIGE
+                  Maroc
                 </span>
                 <br />
                 <span className="text-gray-800">STAR</span>
@@ -47,20 +88,32 @@ export default function Home() {
                 </button>
               </div>
               
-              {/* Statistiques */}
-              <div className="grid grid-cols-3 gap-6 pt-8">
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-red-600">500+</div>
-                  <div className="text-gray-600">Produits Uniques</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-green-600">2K+</div>
-                  <div className="text-gray-600">Clients Satisfaits</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-red-600">100%</div>
-                  <div className="text-gray-600">Authentique Maroc</div>
-                </div>
+              {/* Statistiques Améliorées */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+                <StatItem 
+                  delay={0}
+                  number={500}
+                  suffix="+"
+                  text="Produits Uniques"
+                  color="from-red-500 to-red-600"
+                  icon="🛍️"
+                />
+                <StatItem 
+                  delay={200}
+                  number={2000}
+                  suffix="+"
+                  text="Clients Satisfaits"
+                  color="from-green-500 to-green-600"
+                  icon="😊"
+                />
+                <StatItem 
+                  delay={400}
+                  number={100}
+                  suffix="%"
+                  text="Authentique Maroc"
+                  color="from-red-500 to-red-600"
+                  icon="🌟"
+                />
               </div>
             </div>
             
@@ -69,8 +122,8 @@ export default function Home() {
               <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-4 transform rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src="logo.png" 
-                  alt="Produits Zellige Star" 
-                  className="w-140 h-120 rounded-2xl shadow-lg"
+                  alt="Produits Maroc Star" 
+                  className="w-full h-auto max-w-md mx-auto rounded-2xl shadow-lg"
                 />
               </div>
               
@@ -110,8 +163,50 @@ export default function Home() {
           </svg>
         </div>
       </section>
+    </div>
+  );
+}
 
+// Composant pour chaque item de statistique
+const StatItem = ({ delay, number, suffix, text, color, icon }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <div
+      ref={ref}
+      className={`text-center p-6 rounded-2xl bg-white/70 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-700 transform ${
+        inView 
+          ? 'translate-y-0 opacity-100 scale-100' 
+          : 'translate-y-10 opacity-0 scale-95'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="flex justify-center mb-3">
+        <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${color} flex items-center justify-center text-2xl shadow-md`}>
+          {icon}
+        </div>
+      </div>
+      
+      <div className={`bg-gradient-to-r ${color} bg-clip-text text-transparent font-bold text-3xl md:text-4xl mb-2`}>
+        <AnimatedCounter end={number} suffix={suffix} duration={2000} />
+      </div>
+      
+      <div className="text-gray-700 font-medium text-sm md:text-base">
+        {text}
+      </div>
+      
+      {/* Barre de progression décorative */}
+      <div className="mt-4 h-1 w-16 mx-auto bg-gradient-to-r from-gray-200 to-gray-300 rounded-full overflow-hidden">
+        <div 
+          className={`h-full bg-gradient-to-r ${color} rounded-full transition-all duration-1000 ease-out ${
+            inView ? 'w-full' : 'w-0'
+          }`}
+          style={{ transitionDelay: `${delay + 500}ms` }}
+        ></div>
+      </div>
     </div>
   );
 };
-

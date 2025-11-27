@@ -9,7 +9,7 @@ export default function DashboardAdmin() {
 
   const fetchStats = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/dashboard/stats");
+      const response = await axios.get("https://marocstar-back.vercel.app/dashboard/stats");
       setStats(response.data.stats);
     } catch (error) {
       console.error("Erreur:", error);

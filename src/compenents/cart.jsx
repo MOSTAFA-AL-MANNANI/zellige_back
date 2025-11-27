@@ -127,7 +127,7 @@ export default function Cart() {
                     {/* Image */}
                     <div className="relative flex-shrink-0">
                       <img
-                        src={`http://localhost:3000${item.image}`}
+                        src={`https://marocstar-back.vercel.app${item.image}`}
                         alt={item.name}
                         className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-xl shadow-md"
                       />
@@ -269,28 +269,7 @@ export default function Cart() {
           </div>
         )}
 
-        {/* Produits Recommandés (Section Optionnelle) */}
-        {cart.length > 0 && (
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Produits <span className="text-green-600">Recommandés</span>
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[1, 2, 3, 4].map((item) => (
-                <div key={item} className="bg-white rounded-2xl shadow-lg p-4 text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="w-full h-32 bg-gradient-to-br from-red-100 to-green-100 rounded-lg mb-4 flex items-center justify-center">
-                    <i className="fas fa-gift text-3xl text-gray-400"></i>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Produit Recommandé {item}</h4>
-                  <p className="text-red-600 font-bold mb-3">99 MAD</p>
-                  <button className="w-full bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-green-600 hover:text-white transition-colors duration-300">
-                    Ajouter au panier
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+
       </div>
     </div>
   );

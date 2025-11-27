@@ -25,7 +25,7 @@ export default function AdminLogin() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3000/admins/login", {
+      const res = await axios.post("https://marocstar-back.vercel.app/admins/login", {
         email,
         password,
       });

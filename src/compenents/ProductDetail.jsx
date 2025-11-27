@@ -15,7 +15,7 @@ export default function ProductDetail() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000/product/${id}`)
+      .get(`https://marocstar-back.vercel.app/product/${id}`)
       .then((res) => {
         setProduct(res.data);
         setLoading(false);
@@ -120,32 +120,13 @@ export default function ProductDetail() {
           <div className="lg:w-1/2 p-8">
             <div className="mb-4 rounded-2xl overflow-hidden bg-gray-100">
               <img
-                src={`http://localhost:3000${productImages[selectedImage]}`}
+                src={`https://marocstar-back.vercel.app${productImages[selectedImage]}`}
                 alt={product.name}
                 className="w-full h-96 object-cover transform hover:scale-105 transition duration-500"
               />
             </div>
             
-            {/* Thumbnails */}
-            <div className="flex space-x-4 justify-center">
-              {productImages.map((img, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`w-20 h-20 rounded-xl border-2 overflow-hidden transition duration-300 ${
-                    selectedImage === index 
-                      ? 'border-red-600 scale-110' 
-                      : 'border-gray-300 hover:border-red-400'
-                  }`}
-                >
-                  <img
-                    src={`http://localhost:3000${img}`}
-                    alt={`${product.name} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+
           </div>
 
           {/* Product Info */}
@@ -227,7 +208,7 @@ export default function ProductDetail() {
                     +
                   </button>
                 </div>
-                <span className="text-gray-500">Stock disponible: 50</span>
+                <span className="text-gray-500">Stock disponible: {product.stock}</span>
               </div>
             </div>
 
@@ -242,38 +223,9 @@ export default function ProductDetail() {
                 <span>Ajouter au panier</span>
               </button>
               
-              <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl font-semibold text-lg transition duration-300 transform hover:scale-105 flex items-center justify-center space-x-3">
-                <FaBox />
-                <span>Acheter maintenant</span>
-              </button>
             </div>
 
-            {/* Features */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-6 border-t border-gray-200">
-              <div className="flex items-center space-x-3 text-gray-600">
-                <FaTruck className="text-red-600 text-xl" />
-                <div>
-                  <p className="font-semibold">Livraison rapide</p>
-                  <p className="text-sm">2-3 jours</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3 text-gray-600">
-                <FaShieldAlt className="text-green-600 text-xl" />
-                <div>
-                  <p className="font-semibold">Garantie</p>
-                  <p className="text-sm">2 ans</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3 text-gray-600">
-                <FaRecycle className="text-blue-600 text-xl" />
-                <div>
-                  <p className="font-semibold">Retour facile</p>
-                  <p className="text-sm">30 jours</p>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

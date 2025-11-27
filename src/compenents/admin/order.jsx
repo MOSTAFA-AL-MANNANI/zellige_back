@@ -25,8 +25,8 @@ export default function OrdersAdmin() {
       setLoading(true);
       const url =
         filterStatus === "all"
-          ? "http://localhost:3000/orders"
-          : `http://localhost:3000/orders/status/${filterStatus}`;
+          ? "https://marocstar-back.vercel.app/orders"
+          : `https://marocstar-back.vercel.app/orders/status/${filterStatus}`;
       const response = await axios.get(url);
       setOrders(response.data.orders || []);
     } catch (error) {
@@ -44,7 +44,7 @@ export default function OrdersAdmin() {
   // ✅ Mettre à jour le statut de la commande
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:3000/orders/${id}/status`, {
+      await axios.put(`https://marocstar-back.vercel.app/orders/${id}/status`, {
         status: newStatus,
       });
       Swal.fire("✅ Succès", "Statut de la commande mis à jour avec succès", "success");
