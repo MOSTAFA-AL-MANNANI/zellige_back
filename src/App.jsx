@@ -8,7 +8,7 @@ import Contact from "./compenents/contact";
 import Footer from "./compenents/footer";
 import AdminLogin from "./compenents/login";
 import AdminContacts from "./compenents/admin/contact";
-import Products from "./compenents/admin/Product";
+import AdminProducts from "./compenents/admin/Product";
 import Navbar from "./compenents/navbar";
 import Cart from "./compenents/cart";
 import Checkout from "./compenents/Checkout";
@@ -51,7 +51,7 @@ function App() {
           path="/admin/products" 
           element={
             <ProtectedRoute>
-              <Products />
+              <AdminProducts />
             </ProtectedRoute>
           } 
         />
