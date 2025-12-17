@@ -122,7 +122,7 @@ export default function Home() {
               <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-4 transform rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img 
                   src="logo.png" 
-                  alt="Produits Maroc Star" 
+                  alt="Produits Moroccan Star" 
                   className="w-full h-auto max-w-md mx-auto rounded-2xl shadow-lg"
                 />
               </div>

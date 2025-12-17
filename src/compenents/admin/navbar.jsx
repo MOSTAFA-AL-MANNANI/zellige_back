@@ -79,7 +79,7 @@ export default function AdminNavbar() {
               </div>
               <div className="ml-3">
                 <span className="text-xl font-bold bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">
-                  Maroc Star
+                  Moroccan Star
                 </span>
                 <span className="block text-xs text-gray-400 font-medium">Admin Panel</span>
               </div>

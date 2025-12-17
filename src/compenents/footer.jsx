@@ -16,7 +16,7 @@ export default function Footer ()  {
                 </span>
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-red-400 to-green-400 bg-clip-text text-transparent">
-                Maroc Star
+                Moroccan Star
               </span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
@@ -195,7 +195,7 @@ export default function Footer ()  {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm flex items-center">
                 <i className="fas fa-copyright mr-2 text-red-400"></i>
-                2024 <span className="text-red-400 mx-1">Maroc Star</span>. Tous droits réservés.
+                2024 <span className="text-red-400 mx-1">Moroccan Star</span>. Tous droits réservés.
               </div>
               
               <div className="flex space-x-6 text-sm">

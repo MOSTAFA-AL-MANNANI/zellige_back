@@ -54,8 +54,8 @@ export default function About() {
             </h1>
             <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-green-600 mx-auto mb-8"></div>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Découvrez la passion derrière <span className="text-red-600 font-semibold">Maroc Star</span>, 
-              où l'artisanat marocain rencontre l'innovation moderne
+              Découvrez la passion derrière <span className="text-red-600 font-semibold">Moroccan Star</span>, 
+              où l'artisanat Moroccanain rencontre l'innovation moderne
             </p>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function About() {
                   Notre <span className="text-red-600">Mission</span>
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Chez <span className="font-semibold text-green-600">Maroc Star</span>, nous nous engageons à préserver 
+                  Chez <span className="font-semibold text-green-600">Moroccan Star</span>, nous nous engageons à préserver 
                   et promouvoir le riche patrimoine artisanal marocain à travers des produits 
                   souvenirs modernes et authentiques.
                 </p>

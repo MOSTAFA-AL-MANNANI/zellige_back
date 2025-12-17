@@ -52,7 +52,7 @@ export default function AdminContacts() {
       try {
         await axios.post("https://marocstar-back.vercel.app/contact/reply", {
           email: email,
-          subject: "Réponse - Maroc Star",
+          subject: "Réponse - Moroccan Star",
           message: text,
         });
 

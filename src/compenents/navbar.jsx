@@ -73,7 +73,7 @@ export default function Navbar() {
             <span className={`ml-3 text-2xl font-bold bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent drop-shadow-sm transition-all duration-500 ${
               isScrolled ? 'text-xl' : 'text-2xl'
             }`}>
-              Maroc Star
+              Moroccan Star
             </span>
           </Link>
 
